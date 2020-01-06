@@ -29,43 +29,60 @@ namespace NUnitPractiseApp.Tests
             Assert.That(result, Is.EqualTo(3));
         }
 
-        [Test]
+        // Parameterized Max Tests
         /// max returns the larger number
-        public void Max_FirstNumberIsGreater_ReturnFirstNumber()
-        {
-            ///act
-            var result = _math.Max(2, 1);
-            ///assert
-            Assert.That(result, Is.EqualTo(2));
-        }
-
         [Test]
-        public void Max_SecondNumberIsGreater_ReturnSecondNumber()
+        [TestCase(2, 1, 2)]
+        [TestCase(1, 2, 2)]
+        [TestCase(1, 1, 1)]
+        ///test cases are passed to the test method
+        public void Max_WhenCalled_ReturnTheGreaterNumber( int a, int b, int expectedResult)
         {
             ///act
-            var result = _math.Max(1, 2);
+            var result = _math.Max(a, b);
             ///assert
-            Assert.That(result, Is.EqualTo(2));
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
+   
 
-        [Test]
-        public void Max_NumbersAreTheSame_ReturnSameNumber()
-        {
-            ///act
-            var result = _math.Max(3, 3);
-            ///assert
-            Assert.That(result, Is.EqualTo(3));
-        }
+        #region old max tests
+        //[Test]
+        ///// max returns the larger number
+        //public void Max_FirstNumberIsGreater_ReturnFirstNumber()
+        //{
+        //    ///act
+        //    var result = _math.Max(2, 1);
+        //    ///assert
+        //    Assert.That(result, Is.EqualTo(2));
+        //}
 
+        //[Test]
+        //public void Max_SecondNumberIsGreater_ReturnSecondNumber()
+        //{
+        //    ///act
+        //    var result = _math.Max(1, 2);
+        //    ///assert
+        //    Assert.That(result, Is.EqualTo(2));
+        //}
+
+        //[Test]
+        //public void Max_NumbersAreTheSame_ReturnSameNumber()
+        //{
+        //    ///act
+        //    var result = _math.Max(3, 3);
+        //    ///assert
+        //    Assert.That(result, Is.EqualTo(3));
+        //}
+        #endregion
         [Test]
         public void GetOddNumbers_WhenCalled_ReturnAllOddNumbers()
         {
             ///arrange
             List<int> expected = new List<int> { 1, 3 };
-            
+
             ///act
             var result = _math.GetOddNumbers(4);
-            
+
             ///assert
             CollectionAssert.AreEqual(result, expected);
         }
@@ -74,7 +91,7 @@ namespace NUnitPractiseApp.Tests
         public void GetEvenNumbers_WhenCalled_ReturnAllEven()
         {
             ///arange
-            List<int> expected = new List<int> { 2,4};
+            List<int> expected = new List<int> { 2, 4 };
             ///act 
             var result = _math.GetEvenNumbers(4);
             ///arange
