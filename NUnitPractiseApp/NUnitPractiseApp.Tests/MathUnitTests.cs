@@ -99,6 +99,7 @@ namespace NUnitPractiseApp.Tests
         }
 
         [Test]
+        [Ignore("Because I want to watch the world burn!")]
         public void Subtract_WhenCalled_SubtractArgumentTwoFromOne()
         {
             ///act
