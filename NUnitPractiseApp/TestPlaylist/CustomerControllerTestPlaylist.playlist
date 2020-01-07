@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="NUnitPractiseApp.Tests.CustomerControllerUnitTests.GetCustomer__When_Id_Is_Zero__ReturnNotFound" /><Add Test="NUnitPractiseApp.Tests.CustomerControllerUnitTests.GetCustomer__When_Id_Is_Not_Zero__ReturnOK(2)" /><Add Test="NUnitPractiseApp.Tests.CustomerControllerUnitTests.GetCustomer__When_Id_Is_Not_Zero__ReturnOK(1)" /></Playlist>
