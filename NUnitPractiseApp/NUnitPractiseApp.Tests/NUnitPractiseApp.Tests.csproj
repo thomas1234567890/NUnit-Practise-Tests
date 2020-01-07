@@ -86,6 +86,7 @@
     <Compile Include="MathUnitTests.cs" />
     <Compile Include="HtmlFormatterUnitTests.cs" />
     <Compile Include="CustomerControllerUnitTests.cs" />
+    <Compile Include="ErrorLoggerUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
