@@ -88,6 +88,7 @@
     <Compile Include="CustomerControllerUnitTests.cs" />
     <Compile Include="ErrorLoggerUnitTests.cs" />
     <Compile Include="FizzBuzzUnitTests.cs" />
+    <Compile Include="DemeritPointsCalculatorUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
