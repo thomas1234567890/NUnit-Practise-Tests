@@ -16,6 +16,18 @@ namespace NUnitPractiseApp.Tests
         {
             _errorLogger = new ErrorLogger();
         }
+
+        [Test]
+        public void Log_VailidError_RaiseErrorLogEvent ()
+        {
+            ///arange
+            var id = Guid.Empty;
+            ///act
+            _errorLogger.ErrorLogged+= (sender, args)=> { id = args; };
+            _errorLogger.Log("a");
+            ///assert
+            Assert.That(id, Is.Not.EqualTo(Guid.Empty));
+        }
         [Test]
         [TestCase("This is an errrrorrrr.")]
         public void Log_WhenCalled_SetTheLastErrorProperty(string LoggedError)
@@ -24,7 +36,7 @@ namespace NUnitPractiseApp.Tests
             _errorLogger.Log(LoggedError);
             ///assert
             ///method is void so check the object it changes, the property LastError.
-            Assert.That(_errorLogger.LastError, Is.EqualTo("xxx"));
+            Assert.That(_errorLogger.LastError, Is.EqualTo("This is an errrrorrrr."));
         }
 
         [Test]
