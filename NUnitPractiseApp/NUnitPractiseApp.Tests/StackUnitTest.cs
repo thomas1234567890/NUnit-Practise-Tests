@@ -7,59 +7,56 @@ namespace NUnitPractiseApp.Tests
     [TestFixture]
     public class StackUnitTest
     {
+        ///Setup
+        private Stack<string> _stack;
+        [SetUp]
+        public void Setup()
+        {
+            _stack = new Stack<string>();
+        }
+
         [Test]
         public void Push_WhenObjectPassedIsNull_ThrowArgumentNullException()
         {
-            ///arange
-            var stack = new Stack<string>();
             ///assert
-            Assert.That(() => stack.Push(null), Throws.Exception.TypeOf<ArgumentNullException>());
+            Assert.That(() => _stack.Push(null), Throws.Exception.TypeOf<ArgumentNullException>());
         }
 
 
         [Test]
         public void Push_WhenObjectPassed_AddObjectToStack()
         {
-            ///arange
-            var stack = new Stack<string>();
             
             ///act
-            stack.Push("TestA");
+            _stack.Push("TestA");
             
             ///assert
-            Assert.That(stack.Count, Is.EqualTo(1));
+            Assert.That(_stack.Count, Is.EqualTo(1));
         }
 
         [Test]
         public void Count_EmptyStack_ReturnZero()
         {
-            ///arange
-            var stack = new Stack<string>();
             ///assert
-            Assert.That(stack.Count, Is.EqualTo(0));
+            Assert.That(_stack.Count, Is.EqualTo(0));
         }
 
         [Test]
         public void Pop_WhenListCountIsZero_ThrowInvalidOperationException()
         {
-            ///arange
-            var stack = new Stack<string>();
-
             ///assert
-            Assert.That(() => stack.Pop(), Throws.Exception.TypeOf<InvalidOperationException>());
+            Assert.That(() => _stack.Pop(), Throws.Exception.TypeOf<InvalidOperationException>());
         }
 
         [Test]
         public void Pop_WhenCalled_RemoveTheObjectOnTopOfTheStackAndReturnTheObjectRemoved()
         {
-            ///arange
-            var stack = new Stack<string>();
-            stack.Push("A");
-            stack.Push("B");
-            stack.Push("C");
+            _stack.Push("A");
+            _stack.Push("B");
+            _stack.Push("C");
 
             ///act
-            var result = stack.Pop();
+            var result = _stack.Pop();
             ///assert
             Assert.That(result, Is.EqualTo("C"));
         }
@@ -68,28 +65,36 @@ namespace NUnitPractiseApp.Tests
         public void Pop_WhenCalled_CountStackIsAccurate()
         {
             ///arange
-            var stack = new Stack<string>();
-            stack.Push("A");
-            stack.Push("B");
-            stack.Push("C");
+            _stack.Push("A");
+            _stack.Push("B");
+            _stack.Push("C");
 
             ///act
-            stack.Pop();
+            _stack.Pop();
             ///assert
-            Assert.That(stack.Count, Is.EqualTo(2));
+            Assert.That(_stack.Count, Is.EqualTo(2));
         }
 
 
-        [Test]
-        [Ignore("Not Implemented Yet")]
+        [Test]        
         public void Peek_WhenListCountIsZero_ThrowInvalidOperationException()
         {
-            var stack = new Stack<string>();
+            ///assert
+            Assert.That(() => _stack.Peek(), Throws.InvalidOperationException);
         }
 
         [Test]
         public void Peek_WhenCalled_ReturnTheObjectOnTopOfTheStack ()
         {
+            ///arange
+            _stack.Push("A");
+            _stack.Push("B");
+
+            ///act
+            var result = _stack.Peek();
+
+            ///assert
+            Assert.That(result, Is.EqualTo("B"));
         }
 
 
