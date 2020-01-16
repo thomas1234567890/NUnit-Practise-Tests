@@ -51,6 +51,7 @@ namespace NUnitPractiseApp.Tests
         [Test]
         public void Pop_WhenCalled_RemoveTheObjectOnTopOfTheStackAndReturnTheObjectRemoved()
         {
+            ///arange
             _stack.Push("A");
             _stack.Push("B");
             _stack.Push("C");
