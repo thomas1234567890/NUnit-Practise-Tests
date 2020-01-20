@@ -81,6 +81,8 @@
     <Reference Include="System.Net.Http.WebRequest" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mocking\BookingHelperTests\BookingHelperTests.cs" />
+    <Compile Include="Mocking\BookingHelperTests\FakeUnitOfWork.cs" />
     <Compile Include="Mocking\VideoServicesTests\VideoServicesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />

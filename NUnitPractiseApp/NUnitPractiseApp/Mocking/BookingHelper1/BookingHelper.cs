@@ -6,12 +6,12 @@ namespace TestNinja.Mocking
 {
     public static class BookingHelper
     {
-        public static string OverlappingBookingsExist(Booking booking)
+        public static string OverlappingBookingsExist(IUnitOfWork unitOfWork, Booking booking)
         {
             if (booking.Status == "Cancelled")
                 return string.Empty;
 
-            var unitOfWork = new UnitOfWork();
+            //var unitOfWork = new UnitOfWork();
             var bookings =
                 unitOfWork.Query<Booking>()
                     .Where(
